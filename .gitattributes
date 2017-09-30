@@ -1,2 +1,2 @@
-build/*.js linguist-vendored=true
-config/*.js linguist-vendored=true
+build/*.js linguist-vendored
+config/*.js linguist-vendored

@@ -1,35 +1,18 @@
 <template lang="pug">
-  v-app(toolbar footer)
-    v-navigation-drawer(persistent v-model="drawer" clipped)
-      v-list(v-for="page in pages" :key="page.path")
-        v-list-tile(:to="page.path" exact)
-          v-list-tile-action: v-icon {{ page.icon }}
-          v-list-tile-content: v-list-tile-title {{ page.title }}
-    v-toolbar(fixed)
-      v-toolbar-side-icon(@click="toggleDrawer")
-      v-toolbar-title fu-dream-team-frontend
+  v-app(toolbar)
+    v-toolbar(app dark dense).primary
+      router-link(to="/" tag="v-toolbar-title") Furman Computing in Comunity
+      v-spacer
+      router-link(to="/students")
+        v-btn.accent Students #[v-icon.ml-2 school]
+      router-link(to="/faculty")
+        v-btn.accent Faculty #[v-icon.ml-2 fa-file-text]
+      router-link(to="/courses")
+        v-btn.accent Courses #[v-icon.ml-2 assessment]
+      router-link(to="/partners")
+        v-btn.accent Partners #[v-icon.ml-2 people]
     main
       v-container(fluid)
         v-fade-transition(mode="out-in")
           router-view
-    v-footer
 </template>
-
-<script>
-export default {
-  methods: {
-    toggleDrawer () {
-      this.drawer = !this.drawer
-    }
-  },
-  data () {
-    return {
-      // I'd like to do this with this.$vuetify.breakpoint but I can't get it to work on page load
-      drawer: window.innerWidth > 960,
-      pages: [
-        { path: '/', icon: 'home', title: 'Home' }
-      ]
-    }
-  }
-}
-</script>

@@ -22,7 +22,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src'),
+      '@': resolve('src')
     },
     symlinks: false
   },
@@ -45,12 +45,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [
-          resolve('src'),
-          resolve('test'),
-          resolve('./src'),
-          resolve('./node_modules/vuetify')
-        ]
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

@@ -6,6 +6,9 @@
           v-list-tile-action: v-icon home
           v-list-tile-content: v-list-tile-title Home
         //- TODO: cancel click when already open?
+        v-list-tile(to="/blog" exact @click="closeGroups")
+          v-list-tile-action: v-icon book
+          v-list-tile-content: v-list-tile-title Blog
         v-list-group(v-for="(group, idx) in groups", v-model="group.active" :key="idx")
           v-list-tile(slot="item" :to="group.to")
             v-list-tile-action: v-icon {{ group.icon }}

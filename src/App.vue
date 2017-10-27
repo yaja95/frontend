@@ -35,10 +35,10 @@ export default {
           title: 'Students',
           active: this.$route.path.startsWith('/students/'),
           paths: [
-            { to: '/students/projects/', title: 'Projects' },
-            { to: '/students/experiences/', title: 'Experiences' },
-            { to: '/students/courses/', title: 'Courses' },
-            { to: '/students/awards/', title: 'Awards' }
+            { to: '/students/projects/', title: 'Projects', icon: "list" },
+            { to: '/students/experiences/', title: 'Experiences', icon: "map" },
+            { to: '/students/courses/', title: 'Courses', icon: "assignment" },
+            { to: '/students/awards/', title: 'Awards', icon: "star_border" }
           ]
         },
         {

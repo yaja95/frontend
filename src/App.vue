@@ -50,14 +50,28 @@ export default {
           title: 'Faculty',
           active: this.$route.path.startsWith('/faculty/'),
           paths: [
-            { to: '/faculty/student_fellows/', title: 'Student Fellows' },
-            { to: '/faculty/teaching_fellows/', title: 'Teaching Fellows' },
-            { to: '/faculty/courses/', title: 'Courses' },
-            { to: '/faculty/projects/', title: 'Projects' }
+            { to: '/faculty/student_fellows/', title: 'Student Fellows', icon: "fa-id-card" },
+            { to: '/faculty/teaching_fellows/', title: 'Teaching Fellows', icon: "fa-id-badge" },
+            { to: '/faculty/courses/', title: 'Courses', icon: "assignment" },
+            { to: '/faculty/projects/', title: 'Projects', icon: "list" }
+          ]
+        },
+          {
+          to: '/admin/',
+          icon: 'gavel',
+          title: 'Administrator',
+          active: this.$route.path.startsWith('/admin/'),
+          paths: [
+            { to: '/admin/student_fellows/', title: 'Student Fellows', icon: "fa-id-card" },
+            { to: '/admin/teaching_fellows/', title: 'Teaching Fellows', icon: "fa-id-badge" },
+            { to: '/admin/courses/', title: 'Courses', icon: "assignment" },
+            { to: '/admin/projects/', title: 'Projects', icon: "list" },
+            { to: '/admin/partners/', icon: 'people', title: 'Partners' }
+
           ]
         }
         // { to: '/courses/', icon: 'assessment', title: 'Courses' },
-        // { to: '/partners/', icon: 'people', title: 'Partners' }
+        // 
       ]
     }
   },

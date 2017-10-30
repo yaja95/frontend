@@ -1,5 +1,8 @@
 {
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "vetur.format.js.InsertSpaceBeforeFunctionParenthesis": true,
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "standard.autoFixOnSave": true,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2
 }

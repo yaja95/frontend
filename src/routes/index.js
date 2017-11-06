@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import home from './home'
 import NotFound from './NotFound'
 import StudentsPage from './StudentsPage'
+import FacultyPage from './FacultyPage'
 
 Vue.use(Router)
 
@@ -17,6 +18,10 @@ export const router = new Router({
     {
       path: '/students/',
       component: StudentsPage
+    },
+    {
+      path: '/faculty/',
+      component: FacultyPage
     },
     {
       path: '*',

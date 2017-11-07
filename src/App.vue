@@ -19,6 +19,9 @@
     v-toolbar(app dark dense).primary
       v-toolbar-side-icon(@click.stop="toggleDrawer")
       router-link(tag="v-toolbar-title" to="/") Furman Computing in Comunity
+      v-spacer
+      v-btn(href="http://localhost:5000/login?return=http://localhost:8080/#/" dark) Log In
+      v-btn(@click="logSession()" dark) Log Session
     main
       v-content: v-container(fluid)
         v-fade-transition(mode="out-in")
@@ -61,6 +64,14 @@ export default {
   methods: {
     toggleDrawer () {
       this.drawer = !this.drawer
+    },
+    async logSession () {
+      try {
+        let session = await this.$http.get('debug/session')
+        console.log(session.body)
+      } catch (err) {
+        console.error(err)
+      }
     }
   },
   created () {

@@ -1,48 +1,40 @@
 <template>
   <div>
-    <v-layout>
-      <v-flex xs12 pl-3 pr-3>
-        <v-card>
-          <v-toolbar class="primary" dark>
-            <v-toolbar-title>Events</v-toolbar-title>
-          </v-toolbar>
-          <v-list two-line>
-            <template v-for="(item, index) in opportunities">
-              <v-list-tile ripple :key="index">
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                  <v-list-tile-sub-title>Apply at: {{ item.applyAt }}</v-list-tile-sub-title>
-                  <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-divider v-if="index + 1 < opportunities.length" :key="index"></v-divider>
-            </template>
-          </v-list>
-        </v-card>
-      </v-flex>
-    </v-layout>
-    <RouteCards :cards="cards" class="mb-1"></RouteCards>
-    <v-layout row wrap>
-      <v-flex xs12 pl-3 pr-3>
-        <v-card>
-          <v-toolbar class="primary" dark>
-            <v-toolbar-title>Blog</v-toolbar-title>
-          </v-toolbar>
-          <v-list two-line>
-            <template v-for="(item, index) in blogposts">
-              <v-list-tile ripple :key="index">
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                  <v-list-tile-sub-title>{{ item.date.toLocaleDateString()}}</v-list-tile-sub-title>
-                  <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-divider v-if="index + 1 < blogposts.length" :key="index"></v-divider>
-            </template>
-          </v-list>
-        </v-card>
-      </v-flex>
-    </v-layout>
+    <v-card class="mx-3">
+      <v-toolbar class="primary" dark>
+        <v-toolbar-title>Events</v-toolbar-title>
+      </v-toolbar>
+      <v-list two-line>
+        <template v-for="(item, index) in opportunities">
+          <v-list-tile ripple :key="index">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-sub-title>Apply at: {{ item.applyAt }}</v-list-tile-sub-title>
+              <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-divider v-if="index + 1 < opportunities.length" :key="index"></v-divider>
+        </template>
+      </v-list>
+    </v-card>
+    <RouteCards :cards="cards"></RouteCards>
+    <v-card class="mx-3">
+      <v-toolbar class="primary" dark>
+        <v-toolbar-title>Blog</v-toolbar-title>
+      </v-toolbar>
+      <v-list two-line>
+        <template v-for="(item, index) in blogposts">
+          <v-list-tile ripple :key="index">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ item.date.toLocaleDateString()}}</v-list-tile-sub-title>
+              <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-divider v-if="index + 1 < blogposts.length" :key="index"></v-divider>
+        </template>
+      </v-list>
+    </v-card>
   </div>
 </template>
 

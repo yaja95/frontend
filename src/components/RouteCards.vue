@@ -1,4 +1,5 @@
 <template lang="pug">
+v-container(fluid)
   v-layout(row wrap)
     v-flex(v-for="(card, idx) in cards" :key="idx" xs12 md6)
       v-card(:to="card.route" dark="dark")
@@ -10,7 +11,7 @@
 
 <style lang="stylus" scoped>
 .darken-background
-  background: rgba(0, 0, 0, 0.4)
+  background: rgba(0, 0, 0, 0.8)
 </style>
 
 

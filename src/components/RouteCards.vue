@@ -1,6 +1,6 @@
 <template lang="pug">
   v-layout(row wrap)
-    v-flex(v-for="(card, idx) in cards" :key="idx" xs12 md6)
+    v-flex(v-for="(card, idx) in cards" :key="idx" xs12 md6 pb-3 pt-3 pl-3 pr-3)
       v-card(:to="card.route" dark="dark")
         v-card-media(:height="cardHeight" :src="card.img")
           v-container(fill-height fluid): v-flex(xs12).white--text.darken-background

@@ -1,8 +1,7 @@
 <template>
   <div>
-  <RouteCards :cards="cards" class="mb-1"></RouteCards>
     <v-layout row wrap>
-      <v-flex xs12 md6>
+      <v-flex xs12 pl-3 pr-3>
         <v-card>
           <v-toolbar class="primary" dark>
             <v-toolbar-title>Events</v-toolbar-title>
@@ -21,7 +20,10 @@
           </v-list>
         </v-card>
       </v-flex>
-      <v-flex xs12 md6>
+    </v-layout>
+    <RouteCards :cards="cards" class="mb-1"></RouteCards>
+    <v-layout>
+      <v-flex xs12 pl-3 pr-3>
         <v-card>
           <v-toolbar class="primary" dark>
             <v-toolbar-title>Upcoming Opportunities</v-toolbar-title>

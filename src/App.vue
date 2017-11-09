@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app
-    v-navigation-drawer(app v-model="drawer" persistent enable-resize-watcher)
+    v-navigation-drawer(app v-model="drawer" persistent enable-resize-watcher disable-route-watcher)
       v-list(dense)
         v-list-tile(to="/" exact)
           v-list-tile-action: v-icon home

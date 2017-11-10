@@ -12,7 +12,9 @@ Vue.use(VueResource)
 Vue.use(AsyncComputed)
 
 Vue.config.productionTip = false
-Vue.http.options.root = 'http://localhost:5000/'
+Vue.http.options.root = process.env.NODE_ENV === 'production'
+  ? 'https://powerful-sands-17762.herokuapp.com/'
+  : 'http://localhost:5000/'
 Vue.http.options.credentials = true
 
 new Vue({

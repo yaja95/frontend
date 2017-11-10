@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app
-    v-navigation-drawer(app v-model="drawer" persistent enable-resize-watcher disable-route-watcher)
+    v-navigation-drawer(app v-model="drawer" persistent disable-route-watcher)
       v-list(dense)
         v-list-tile(to="/" exact)
           v-list-tile-action: v-icon home
@@ -20,9 +20,13 @@
       v-toolbar-side-icon(@click.stop="toggleDrawer")
       router-link(tag="v-toolbar-title" to="/") Furman Computing in Comunity
       v-spacer
-      v-btn(href="http://localhost:5000/login?return=http://localhost:8080/#/" dark) Log In
-      v-btn(@click="logSession()" dark) Log Session
-    main
+      template(v-if="!(user === undefined)")
+        v-btn(v-if="!user" :href="loginUrl").accent Log In
+        v-menu(v-else offset-y)
+          v-btn(slot="activator").accent {{ user.displayName }} #[v-icon keyboard_arrow_down]
+          v-list(dense)
+            v-list-tile(:href="logoutUrl" style="{font-weight: 500}"): v-list-tile-content: v-list-tile-title Log Out
+    main 
       v-content: v-container(fluid)
         v-fade-transition(mode="out-in")
           router-view
@@ -32,7 +36,7 @@
 export default {
   data () {
     return {
-      drawer: true,
+      drawer: false,
       groups: [
         {
           to: '/students/',
@@ -61,17 +65,34 @@ export default {
       ]
     }
   },
+  computed: {
+    loginUrl () {
+      return `${this.$http.options.root}login?return=${this.path}`
+    },
+    logoutUrl () {
+      return `${this.$http.options.root}logout?return=${this.path}`
+    },
+    path () {
+      return encodeURIComponent(window.location.href)
+    }
+  },
+  asyncComputed: {
+    user: {
+      async get () {
+        try {
+          let user = await this.$http.get('users/me')
+          return user.body
+        } catch (e) {
+          console.error('Failed to get current user')
+          console.error(e)
+        }
+      },
+      default: undefined
+    }
+  },
   methods: {
     toggleDrawer () {
       this.drawer = !this.drawer
-    },
-    async logSession () {
-      try {
-        let session = await this.$http.get('debug/session')
-        console.log(session.body)
-      } catch (err) {
-        console.error(err)
-      }
     }
   },
   created () {

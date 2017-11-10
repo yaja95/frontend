@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-layout(row wrap)
+  v-container(fluid grid-list-lg): v-layout(row wrap)
     v-flex(v-for="(card, idx) in cards" :key="idx" xs12 md6)
       v-card(:to="card.route" dark="dark")
         v-card-media(:height="cardHeight" :src="card.img")

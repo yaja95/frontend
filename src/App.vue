@@ -39,7 +39,8 @@ export default {
             { to: '/students/projects/', title: 'Projects', icon: 'list' },
             { to: '/students/experiences/', title: 'Experiences', icon: 'map' },
             { to: '/students/courses/', title: 'Courses', icon: 'assignment' },
-            { to: '/students/awards/', title: 'Awards', icon: 'star_border' }
+            { to: '/students/awards/', title: 'Awards', icon: 'star_border' },
+            {to: '/Events/', title: 'Events', icon: 'E'}
           ]
         },
         {

@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app
-    v-navigation-drawer(app v-model="drawer" persistent enable-resize-watcher)
+    v-navigation-drawer(app v-model="drawer" persistent disable-route-watcher)
       v-list(dense)
         v-list-tile(to="/" exact)
           v-list-tile-action: v-icon home
@@ -19,7 +19,14 @@
     v-toolbar(app dark dense).primary
       v-toolbar-side-icon(@click.stop="toggleDrawer")
       router-link(tag="v-toolbar-title" to="/") Furman Computing in Comunity
-    main
+      v-spacer
+      template(v-if="!(user === undefined)")
+        v-btn(v-if="!user" :href="loginUrl").accent Log In
+        v-menu(v-else offset-y)
+          v-btn(slot="activator").accent {{ user.displayName }} #[v-icon keyboard_arrow_down]
+          v-list(dense)
+            v-list-tile(:href="logoutUrl" style="{font-weight: 500}"): v-list-tile-content: v-list-tile-title Log Out
+    main 
       v-content: v-container(fluid)
         v-fade-transition(mode="out-in")
           router-view
@@ -29,7 +36,7 @@
 export default {
   data () {
     return {
-      drawer: true,
+      drawer: false,
       groups: [
         {
           to: '/students/',
@@ -56,6 +63,31 @@ export default {
         // { to: '/courses/', icon: 'assessment', title: 'Courses' },
         // { to: '/partners/', icon: 'people', title: 'Partners' }
       ]
+    }
+  },
+  computed: {
+    loginUrl () {
+      return `${this.$http.options.root}login?return=${this.path}`
+    },
+    logoutUrl () {
+      return `${this.$http.options.root}logout?return=${this.path}`
+    },
+    path () {
+      return encodeURIComponent(window.location.href)
+    }
+  },
+  asyncComputed: {
+    user: {
+      async get () {
+        try {
+          let user = await this.$http.get('users/me')
+          return user.body
+        } catch (e) {
+          console.error('Failed to get current user')
+          console.error(e)
+        }
+      },
+      default: undefined
     }
   },
   methods: {

@@ -1,33 +1,40 @@
 <template>
   <div>
-      <v-container fluid>
-      <v-flex xs12 sm12 md12 lg12 xl12>
-        <v-card>
-          <v-toolbar class="primary" dark>
-            <v-toolbar-title>Events</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn class="black--text">Calendar
-            <v-icon light right>date_range</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-list two-line>
-            <template v-for="(item, index) in events">
-              <v-list-tile ripple :key="index">
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                  <v-list-tile-sub-title>{{ item.date.toLocaleDateString()}}</v-list-tile-sub-title>
-                  <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-divider v-if="index + 1 < events.length" :key="index"></v-divider>
-            </template>
-          </v-list>
-        </v-card>
-      </v-flex>
-      </v-container>
-  <RouteCards :cards="cards" class="mb-1"></RouteCards>
-    <v-layout row wrap></v-layout>
-    
+    <v-card class="mx-3">
+      <v-toolbar class="primary" dark>
+        <v-toolbar-title>Events</v-toolbar-title>
+      </v-toolbar>
+      <v-list two-line>
+        <template v-for="(item, index) in events">
+          <v-list-tile ripple :key="index">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ item.date.toLocaleDateString()}}</v-list-tile-sub-title>
+              <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-divider v-if="index + 1 < events.length" :key="index"></v-divider>
+        </template>
+      </v-list>
+    </v-card>
+    <RouteCards :cards="cards"></RouteCards>
+    <v-card class="mx-3">
+      <v-toolbar class="primary" dark>
+        <v-toolbar-title>Upcoming Opportunities</v-toolbar-title>
+      </v-toolbar>
+      <v-list two-line>
+        <template v-for="(item, index) in opportunities">
+          <v-list-tile ripple :key="index">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-sub-title>{{ item.date.toLocaleDateString()}}</v-list-tile-sub-title>
+              <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-divider v-if="index + 1 < opportunities.length" :key="index"></v-divider>
+        </template>
+      </v-list>
+    </v-card>
   </div>
 </template>
 

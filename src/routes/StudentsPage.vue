@@ -4,7 +4,7 @@
       <v-toolbar class="primary" dark>
         <v-toolbar-title>Events</v-toolbar-title>
          <v-spacer></v-spacer>
-        <v-btn class='black--text'>Calendar
+        <v-btn class='black--text' to="/events/">Calendar
           <v-icon right >date_range</v-icon>
         </v-btn>
 

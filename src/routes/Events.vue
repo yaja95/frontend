@@ -22,9 +22,6 @@
               <v-card-text>
                 <div class>{{item.description}}</div>
               </v-card-text>
-              <v-card-actions>
-                <v-btn flat dark>Listen now</v-btn>
-              </v-card-actions>
             </v-card>
           </template>
         </v-flex>

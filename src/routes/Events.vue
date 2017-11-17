@@ -1,79 +1,54 @@
 <template>
   <div>
-  <v-card>
-    <v-card-title>
-      Events
+  <v-spacer></v-spacer>
+    <v-toolbar class = primary>
+      <v-toolbar-title class="white--text">Events Listing</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-text-field
-        append-icon="search"
-        label="Search"
-        single-line
-        hide-details
-        v-model="search"
-      ></v-text-field>
-    </v-card-title>
-    <v-data-table
-        v-bind:headers="headers"
-        v-bind:items="items"
-        v-bind:search="search"
-      >
-      <template slot="items" scope="props">
-        <td>
-          <v-edit-dialog
-            lazy
-          > {{ props.item.name }}
-            <v-text-field
-              slot="input"
-              label="Edit"
-              v-model="props.item.name"
-              single-line
-              counter
-              :rules="[max25chars]"
-            ></v-text-field>
-          </v-edit-dialog>
-        </td>
-        <td class="text-xs-right">{{ props.item.calories }}</td>
-        <td class="text-xs-right">{{ props.item.fat }}</td>
-        <td class="text-xs-right">{{ props.item.carbs }}</td>
-        <td class="text-xs-right">{{ props.item.protein }}</td>
-        <td class="text-xs-right">{{ props.item.sodium }}</td>
-        <td class="text-xs-right">{{ props.item.calcium }}</td>
-        <td class="text-xs-right">
-          <v-edit-dialog
-            @open="tmp = props.item.iron"
-            @save="props.item.iron = tmp || props.item.iron"
-            large
-            lazy
-          >
-            <div>{{ props.item.iron }}</div>
-            <div slot="input" class="mt-3 title">Update Iron</div>
-            <v-text-field
-              slot="input"
-              label="Edit"
-              v-model="tmp"
-              single-line
-              counter
-              autofocus
-              :rules="[max25chars]"
-            ></v-text-field>
-          </v-edit-dialog>
-        </td>
-      </template>
-      <template slot="pageText" scope="{ pageStart, pageStop }">
-        From {{ pageStart }} to {{ pageStop }}
-      </template>
-    </v-data-table>
-  </v-card>
+    </v-toolbar>
+    <v-container
+      fluid
+      style="min-height: 0;"
+      grid-list-lg
+    >
+      <v-layout row wrap>
+        <v-flex xs12>
+          <template v-for="(item, index) in calendar">
+            <v-card color="white" class="black--text" :key="index">
+              <v-card-title>
+                <div class="headline">{{item.title}}</div>
+                <v-spacer></v-spacer>
+                <div class ="headline">{{item.date.toLocaleDateString()}}</div>
+              </v-card-title>
+              <v-card-text>
+                <div class>{{item.description}}</div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn flat dark>Listen now</v-btn>
+              </v-card-actions>
+            </v-card>
+          </template>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
-
 <script>
   export default {
     data () {
       return {
-        notifications: false,
-        sound: true,
-        widgets: false
+        calendar: [ // Example stub
+          {
+            title: 'Study Away',
+            description: 'Study away in the land of your dreams! I really don\'t have anything clever to say... ' +
+            'Lorem Ipsum dolor amet. Have some pseudo-latin to soothe your pet. This should be a AABB rhyme but I\'m lazy.',
+            date: new Date(2018, 7, 22)
+          },
+          {
+            title: 'Another Event',
+            description: 'Here\'s another event.',
+            date: new Date(2017, 11, 5)
+          }
+        ]
       }
     }
   }

@@ -47,6 +47,14 @@
           }
         ]
       }
+    },
+    asyncComputed: {
+      user: {
+        async get () {
+          let calendar = await this.$http.get('events/{id}')
+          return calendar
+        }
+      }
     }
   }
 </script>

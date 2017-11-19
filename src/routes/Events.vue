@@ -17,7 +17,7 @@
               <v-card-title>
                 <div class="headline">{{item.title}}</div>
                 <v-spacer></v-spacer>
-                <div class ="headline">{{item.date.toLocaleDateString()}}</div>
+                <div class ="headline">{{new Date(item.time).toLocaleDateString()}}</div>
               </v-card-title>
               <v-card-text>
                 <div class>{{item.description}}</div>

@@ -21,7 +21,7 @@ export const router = new Router({
       component: StudentsPage
     },
     {
-      path: '/Events/',
+      path: '/events/',
       component: Events
     },
     {

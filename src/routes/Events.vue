@@ -33,19 +33,6 @@
   export default {
     data () {
       return {
-        calendar: [ // Example stub
-          {
-            title: 'Study Away',
-            description: 'Study away in the land of your dreams! I really don\'t have anything clever to say... ' +
-            'Lorem Ipsum dolor amet. Have some pseudo-latin to soothe your pet. This should be a AABB rhyme but I\'m lazy.',
-            date: new Date(2018, 7, 22)
-          },
-          {
-            title: 'Another Event',
-            description: 'Here\'s another event.',
-            date: new Date(2017, 11, 5)
-          }
-        ]
       }
     },
     asyncComputed: {

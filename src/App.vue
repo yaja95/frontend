@@ -59,8 +59,15 @@ export default {
             { to: '/faculty/courses/', title: 'Courses', icon: 'assignment' },
             { to: '/faculty/projects/', title: 'Projects', icon: 'list' }
           ]
+        },
+        {
+          to: '/courses/',
+          icon: 'assignment',
+          title: 'Courses',
+          paths: [
+            { to: '/courses/', icon: 'assessment', title: 'Courses' }
+          ]
         }
-        // { to: '/courses/', icon: 'assessment', title: 'Courses' },
         // { to: '/partners/', icon: 'people', title: 'Partners' }
       ]
     }

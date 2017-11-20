@@ -8,6 +8,9 @@
         v-list-tile(to="/blog/")
           v-list-tile-action: v-icon book
           v-list-tile-content: v-list-tile-title Blog
+        v-list-tile(to="/events/")
+          v-list-tile-action: v-icon date_range
+          v-list-tile-content: v-list-tile-tile Events
         v-list-group(v-for="(group, idx) in groups", v-model="group.active" :key="idx")
           v-list-tile(slot="item" :to="group.to" @click.stop="")
             v-list-tile-action: v-icon {{ group.icon }}

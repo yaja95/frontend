@@ -8,6 +8,7 @@ import StudentsPage from './StudentsPage'
 import FacultyPage from './FacultyPage'
 import Events from './Events'
 import Projects from './StudentProjects'
+import Awards from './Awards'
 
 Vue.use(Router)
 
@@ -20,6 +21,10 @@ export const router = new Router({
     {
       path: '/students/',
       component: StudentsPage
+    },
+    {
+      path: '/students/awards',
+      component: Awards
     },
     {
       path: '/events/',

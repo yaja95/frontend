@@ -1,124 +1,124 @@
 <template>
 <div>
   <section>
-        <v-parallax src='/static/purp.jpg' height="350" >
-          <v-layout
-            column
-            align-center
-            justify-center
-            class="white--text"
-          >
-            <!--<img src="assets/vuetify.png" alt="Vuetify.js">-->
-            <h1 class=" white--text darken mb-2 display-3">Project Opportunites</h1>
-            <p class=" white--text headline mb-3 text-xs-center">Find a list of all available Project Opportunities below!</p>
-            <!--<v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="/pre-made-themes"
-            >
-              Get Started
-            </v-btn>-->
-          </v-layout>
-        </v-parallax>
-      </section>
-      <section>
+    <v-parallax src='/static/purp.jpg' height="350" >
+      <v-layout
+        column
+        align-center
+        justify-center
+        class="white--text"
+      >
+        <!--<img src="assets/vuetify.png" alt="Vuetify.js">-->
+        <h1 class=" white--text darken mb-2 display-3">Project Opportunites</h1>
+        <p class=" white--text headline mb-3 text-xs-center">Find a list of all available Project Opportunities below!</p>
+        <!--<v-btn
+          class="blue lighten-2 mt-5"
+          dark
+          large
+          href="/pre-made-themes"
+        >
+          Get Started
+        </v-btn>-->
+      </v-layout>
+    </v-parallax>
+  </section>
+  <section>
     <v-container fluid>
-  <v-layout row>
-    <!--<v-flex xs12 sm6 lg3  >
-        <v-spacer></v-spacer>
-    <v-card  flat tile>
-        <v-card-media src="/static/Me.jpg" height = "465px">
-        </v-card-media>
-    </v-card>
-    
-    </v-flex>-->
-    
-    <v-flex xs12 sm6 >
-       
-      <v-card raised hover class="mt-5">
-        <v-toolbar   fixed  class=" mt-5 purple darken-4">
+      <v-layout row>
+        <!--<v-flex xs12 sm6 lg3  >
+            <v-spacer></v-spacer>
+        <v-card  flat tile>
+            <v-card-media src="/static/Me.jpg" height = "465px">
+            </v-card-media>
+        </v-card>
+        
+        </v-flex>-->
+        
+        <v-flex xs12 sm6 >
           
-          <v-toolbar-title class="white--text">Project Opportunities
-               
-          </v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-select 
-          label="Filters"  
-          v-model="a1"
-          v-bind:items="categories" 
-          multiple
-          chips
-          autocomplete
-          
-          hint="Select one or more tags to filter the list" 
-          persistent-hint
-          dark>
-            <v-card flat>
-              <v-card-text>
-            <v-switch v-bind:label="`switch`">
-            </v-switch>
-            </v-card-text>
-            </v-card>
-          </v-select>
-          
-        </v-toolbar>
-        <v-list subheader two-line>
-          
-            <v-list-tile  v-for="item in items" v-bind:key="item.title" @click="">
+          <v-card raised hover class="mt-5">
+            <v-toolbar   fixed  class=" mt-5 purple darken-4">
               
-              <v-list-tile-content>
-                <v-list-tile-title v-html="item.title" ></v-list-tile-title>
-                 <v-list-tile-sub-title v-bind="item.text" v-html="item.subtitle"></v-list-tile-sub-title>
-              </v-list-tile-content>
-              <v-list-tile-action>
-                <v-icon v-bind:color="item.active ? 'purple darken-4' : 'grey'">CINC</v-icon>
-              </v-list-tile-action>
-            </v-list-tile>
-        </v-list>
-        <!--<v-divider></v-divider>
-        <v-list subheader>
-          <v-subheader>Previous chats</v-subheader>
-          <v-list-tile v-for="item in items2" v-bind:key="item.title" @click="">
-            
-            <v-list-tile-content>
-              <v-list-tile-title v-html="item.title"></v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>-->
-      </v-card>
-    </v-flex>
-    <!--<v-flex xs12 sm6 lg3 >
-    <v-card flat tile>
-        <v-card-media src="/static/Me.jpg" height = "465px">
-        </v-card-media>
-    </v-card>
-    
-    </v-flex>-->
-  </v-layout>
+              <v-toolbar-title class="white--text">Project Opportunities
+                  
+              </v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-select 
+              label="Filters"  
+              v-model="a1"
+              v-bind:items="categories" 
+              multiple
+              chips
+              autocomplete
+              
+              hint="Select one or more tags to filter the list" 
+              persistent-hint
+              dark>
+                <v-card flat>
+                  <v-card-text>
+                <v-switch v-bind:label="`switch`">
+                </v-switch>
+                </v-card-text>
+                </v-card>
+              </v-select>
+              
+            </v-toolbar>
+            <v-list subheader two-line>
+              
+                <v-list-tile  v-for="item in items" v-bind:key="item.title" @click="">
+                  
+                  <v-list-tile-content>
+                    <v-list-tile-title v-html="item.title" ></v-list-tile-title>
+                    <v-list-tile-sub-title v-bind="item.text" v-html="item.subtitle"></v-list-tile-sub-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-icon v-bind:color="item.active ? 'purple darken-4' : 'grey'">CINC</v-icon>
+                  </v-list-tile-action>
+                </v-list-tile>
+            </v-list>
+            <!--<v-divider></v-divider>
+            <v-list subheader>
+              <v-subheader>Previous chats</v-subheader>
+              <v-list-tile v-for="item in items2" v-bind:key="item.title" @click="">
+                
+                <v-list-tile-content>
+                  <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </v-list>-->
+          </v-card>
+        </v-flex>
+        <!--<v-flex xs12 sm6 lg3 >
+        <v-card flat tile>
+            <v-card-media src="/static/Me.jpg" height = "465px">
+            </v-card-media>
+        </v-card>
+        
+        </v-flex>-->
+      </v-layout>
     </v-container>
-      </section>
-       <section>
-        <v-parallax src='/static/purp.jpg' height="300" >
-          <v-layout
-            column
-            align-center
-            justify-center
-            class="white--text"
-          >
-            <!--<img src="assets/vuetify.png" alt="Vuetify.js">-->
-            
-            <!--<v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="/pre-made-themes"
-            >
-              Get Started
-            </v-btn>-->
-          </v-layout>
-        </v-parallax>
-      </section>
+  </section>
+  <section>
+    <v-parallax src='/static/purp.jpg' height="300" >
+      <v-layout
+        column
+        align-center
+        justify-center
+        class="white--text"
+      >
+        <!--<img src="assets/vuetify.png" alt="Vuetify.js">-->
+        
+        <!--<v-btn
+          class="blue lighten-2 mt-5"
+          dark
+          large
+          href="/pre-made-themes"
+        >
+          Get Started
+        </v-btn>-->
+      </v-layout>
+    </v-parallax>
+  </section>
 </div>
 </template>
 

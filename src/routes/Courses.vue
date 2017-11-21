@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-parallax src="http://technozed.com/wp-content/uploads/2016/03/firewatch-wallpaper-12.jpg">
-    <v-layout row justify-center>
+    <v-layout row justify-right>
     <v-dialog v-model="dialog" persistent max-width="500px">
       <v-btn color="primary" dark slot="activator">Create Suggestion</v-btn>
       <v-card>

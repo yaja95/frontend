@@ -57,7 +57,7 @@ export default {
           icon: 'fa-file-text',
           title: 'Faculty',
           paths: [
-            { to: '/faculty/student_fellows/', title: 'Student Fellows', icon: 'portrait' },
+            { to: '/faculty/StudentFellows/', title: 'Student Fellows', icon: 'portrait' },
             { to: '/faculty/teaching_fellows/', title: 'Teaching Fellows', icon: 'contacts' },
             { to: '/faculty/courses/', title: 'Courses', icon: 'assignment' },
             { to: '/faculty/projects/', title: 'Projects', icon: 'list' }

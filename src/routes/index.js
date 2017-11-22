@@ -8,6 +8,7 @@ import StudentsPage from './StudentsPage'
 import FacultyPage from './FacultyPage'
 import Events from './Events'
 import Awards from './Awards'
+import StudentFellows from './StudentFellows'
 
 Vue.use(Router)
 
@@ -32,6 +33,10 @@ export const router = new Router({
     {
       path: '/faculty/',
       component: FacultyPage
+    },
+    {
+      path: '/faculty/StudentFellows',
+      component: StudentFellows
     },
     {
       path: '*',

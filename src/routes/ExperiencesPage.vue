@@ -50,7 +50,7 @@
               <template v-for="(item, index) in experiences">
                 <v-card color="white" class="black--text" :key="index">
                   <v-flex xs4>
-                    <img v-img src={{ item.img }}>
+                    <img v-img :src="item.img"/>
                   </v-flex>
                 <v-flex xs8>
                   <v-card-title>

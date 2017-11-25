@@ -7,6 +7,7 @@ import NotFound from './NotFound'
 import StudentsPage from './StudentsPage'
 import FacultyPage from './FacultyPage'
 import Events from './Events'
+import Projects from './StudentProjects'
 import Awards from './Awards'
 
 Vue.use(Router)
@@ -32,6 +33,10 @@ export const router = new Router({
     {
       path: '/faculty/',
       component: FacultyPage
+    },
+    {
+      path: '/students/projects/',
+      component: Projects
     },
     {
       path: '*',

@@ -9,6 +9,7 @@ import FacultyPage from './FacultyPage'
 import Events from './Events'
 import Projects from './StudentProjects'
 import Awards from './Awards'
+import StudentFellows from './StudentFellows'
 import ExperiencesPage from './ExperiencesPage'
 
 Vue.use(Router)
@@ -36,6 +37,8 @@ export const router = new Router({
       component: FacultyPage
     },
     {
+      path: '/faculty/student_fellows/',
+      component: StudentFellows
       path: '/students/projects/',
       component: Projects
     },

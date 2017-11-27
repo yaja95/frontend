@@ -22,7 +22,7 @@
               name="input-7-1"
               label="Course Description"
               multi-line
-            ></v-text-field>
+            required></v-text-field>
           </v-flex>
             </v-layout>
           </v-container>

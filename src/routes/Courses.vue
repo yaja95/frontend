@@ -12,14 +12,18 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12 sm6 md6>
-                <v-text-field label="Instructor's First Name" required></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md6>
-                <v-text-field label="Instructor's Last Name" required></v-text-field>
+                <v-text-field label="Instructor's Name" required></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field label="Instructor's Department" required></v-text-field>
               </v-flex>
+          <v-flex xs8>
+            <v-text-field
+              name="input-7-1"
+              label="Course Description"
+              multi-line
+            ></v-text-field>
+          </v-flex>
             </v-layout>
           </v-container>
           <small>*indicates required field</small>
@@ -44,7 +48,6 @@
         <v-container fluid grid-list-md class="grey lighten-4">
           <v-layout row wrap>
             <v-flex
-              v-bind="{ [`xs${card.flex}`]: true }"
               v-for="card in cards"
               :key="card.id"
             >
@@ -119,7 +122,7 @@ export default {
       name: '',
       nameRules: [
         (v) => !!v || 'Name is required',
-        (v) => v.length <= 30 || 'Name must be less than 30 characters'
+        (v) => v.length <= 100 || 'Name must be less than 100 characters'
       ],
       department: ''
     }

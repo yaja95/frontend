@@ -25,7 +25,11 @@ export const router = new Router({
       component: FacultyPage
     },
     {
-      path: '/courses/',
+      path: '/faculty/courses/',
+      component: Courses
+    },
+    {
+      path: '/students/courses/',
       component: Courses
     },
     {

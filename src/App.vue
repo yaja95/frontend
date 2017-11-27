@@ -45,7 +45,8 @@ export default {
           paths: [
             { to: '/students/projects/', title: 'Projects', icon: 'list' },
             { to: '/students/experiences/', title: 'Experiences', icon: 'map' },
-            { to: '/students/awards/', title: 'Awards', icon: 'star_border' }
+            { to: '/students/awards/', title: 'Awards', icon: 'star_border' },
+            { to: '/students/courses/', icon: 'assessment', title: 'Courses' }
           ]
         },
         {
@@ -55,13 +56,9 @@ export default {
           paths: [
             { to: '/faculty/student_fellows/', title: 'Student Fellows', icon: 'portrait' },
             { to: '/faculty/teaching_fellows/', title: 'Teaching Fellows', icon: 'contacts' },
-            { to: '/faculty/projects/', title: 'Projects', icon: 'list' }
+            { to: '/faculty/projects/', title: 'Projects', icon: 'list' },
+            { to: '/faculty/courses/', icon: 'assessment', title: 'Courses' }
           ]
-        },
-        {
-          to: '/courses/',
-          icon: 'assignment',
-          title: 'Courses'
         }
         // { to: '/partners/', icon: 'people', title: 'Partners' }
       ]

@@ -41,7 +41,7 @@
                 </v-toolbar-title>
 
                 <v-spacer></v-spacer>
-                <v-select label="Search Projects" v-model="a1" v-bind:items="categories" prepend-icon="search" multiple chips autocomplete hint="Select one or more tags to filter the list" dark>
+                <v-select label="Search Projects" v-model="a1" v-bind:items="categories" prepend-icon="search" multiple  autocomplete hint="Select one or more tags to filter the list" dark>
 
                 </v-select>
                 <v-spacer></v-spacer>
@@ -174,6 +174,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
+              <v-btn color="error" flat @click.native="dialog = false">Cancel</v-btn>
               <v-btn color="success" flat @click.native="dialog = false">Submit</v-btn>
 
             </v-card-actions>
@@ -211,8 +212,8 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
+               <v-btn color="error" flat @click.native="dialog2 = false">Cancel</v-btn>
               <v-btn color="success" flat @click.native="dialog2 = false">Submit</v-btn>
-
             </v-card-actions>
           </v-card>
         </v-dialog>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-parallax src="http://technozed.com/wp-content/uploads/2016/03/firewatch-wallpaper-12.jpg">
-    <v-layout row justify-right>
+    <v-layout row>
     <v-dialog v-model="dialog" persistent max-width="500px">
       <v-btn color="primary" dark slot="activator">Create Suggestion</v-btn>
       <v-card>
@@ -14,10 +14,10 @@
               <v-flex xs12 sm6 md6>
                 <v-text-field label="Instructor's Name" required></v-text-field>
               </v-flex>
-              <v-flex xs12>
+              <v-flex xs12 sm6 md6>
                 <v-text-field label="Instructor's Department" required></v-text-field>
               </v-flex>
-          <v-flex xs12 md6>
+          <v-flex xs12 sm6 md12>
             <v-text-field
               name="input-7-1"
               label="Course Description"
@@ -36,8 +36,8 @@
       </v-card>
     </v-dialog>
   </v-layout>
-      <v-layout column class="mt-5">
-      <v-flex xs12 sm6 offset-sm3>
+      <v-layout row wrap justify-left>
+      <v-flex xs12 mt10>
         <v-toolbar color="primary" dark>
           <v-toolbar-title>Suggested CinC Courses</v-toolbar-title>
           <v-spacer></v-spacer>
@@ -53,7 +53,7 @@
             >
               <v-card>
                 <v-card-media>
-                  <v-container fill-height fluid>
+                  <v-container fluid>
                     <v-layout fill-height>
                       <v-flex xs12 align-end flexbox>
                         <span class="headline black--text"> {{ card.description }} </span>
@@ -63,7 +63,7 @@
                 </v-card-media>
                 <v-card-actions class="white">
                   <v-spacer></v-spacer>
-                  <v-btn flat icon>
+                  <v-btn flat icon color="primary">
                     <v-icon>thumb_up</v-icon>
                   </v-btn>
                 </v-card-actions>
@@ -72,9 +72,10 @@
           </v-layout>
         </v-container>
       </v-flex>
+
     </v-layout>
-    <v-layout column class="mt-5">
-      <v-flex xs12 sm6 offset-sm3>
+    <v-layout row wrap justify-left>
+      <v-flex xs12 mt10>
         <v-spacer></v-spacer>
         <v-toolbar color="primary" dark>
           <v-toolbar-title>CinC Courses</v-toolbar-title>
@@ -91,7 +92,7 @@
             >
               <v-card>
                 <v-card-media>
-                  <v-container fill-height fluid>
+                  <v-container fluid>
                     <v-layout fill-height>
                       <v-flex xs12 align-end flexbox>
                         <span class="headline black--text"> {{ card.description }} </span>

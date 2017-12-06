@@ -45,6 +45,7 @@
       UploadButton
     },
     data: () => ({
+      file: null,
       valid: true,
       name: '',
       email: '',

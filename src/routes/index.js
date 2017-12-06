@@ -6,6 +6,7 @@ import home from './home'
 import NotFound from './NotFound'
 import StudentsPage from './StudentsPage'
 import FacultyPage from './FacultyPage'
+import Courses from './Courses'
 import Events from './Events'
 import Projects from './StudentProjects'
 import Awards from './Awards'
@@ -37,6 +38,13 @@ export const router = new Router({
       component: FacultyPage
     },
     {
+      path: '/faculty/courses/',
+      component: Courses
+    },
+    {
+      path: '/students/courses/',
+      component: Courses
+    },
       path: '/faculty/student_fellows/',
       component: StudentFellows
     },

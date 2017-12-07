@@ -14,7 +14,7 @@
           <v-list-tile ripple :key="index">
             <v-list-tile-content>
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ item.date.toLocaleDateString()}}</v-list-tile-sub-title>
+              <v-list-tile-sub-title>{{ new Date(item.time).toLocaleString()}}</v-list-tile-sub-title>
               <v-list-tile-sub-title>{{ item.description }}</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
@@ -79,14 +79,6 @@ export default {
           text: 'See the awards our students and department have given and received!'
         }
       ],
-      events: [ // Example stub
-        {
-          title: 'CCSCSE Programming Competition',
-          description: 'A competition to solve a number of programming puzzles in a limited amount of time. ' +
-            'Furman won last year, so let\'s do it again! And so on this can be an arbitrary amount of text....',
-          date: new Date(2017, 11, 3)
-        }
-      ],
       opportunities: [ // Example stub
         {
           title: 'Study Away',
@@ -97,6 +89,13 @@ export default {
       ]
     }
   },
-  components: { RouteCards }
+  components: { RouteCards },
+
+  asyncComputed: {
+    async events () {
+      let events = await this.$http.get('events')
+      return events.body
+    }
+  }
 }
 </script>

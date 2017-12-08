@@ -17,92 +17,84 @@
         </v-layout>
       </v-parallax>
     </section>
+
     <section>
       <v-container fluid>
         <v-layout column wrap>
-          <!--<v-flex xs12 sm6 lg3  >
-          <v-spacer></v-spacer>
-      <v-card  flat tile>
-          <v-card-media src="/static/Me.jpg" height = "465px">
-          </v-card-media>
-      </v-card>
-      
-      </v-flex>-->
-          <div>
-            <v-layout row justify-center>
-      <v-dialog v-model="dialog" persistent max-width="500px">
-        <v-btn fixed center large color="blue" dark slot="activator"> Click to Add a Post</v-btn>
-        <v-card>
-          <v-card-title>
-            <span class="headline">New Project</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm12 md12>
-                  <v-text-field label="Project Title" required></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm12 md12>
-                  <v-text-field label="Description" required hint="Describe the main details of the project"></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Name" required hint="Enter your name"></v-text-field>
-                </v-flex>
 
-                <v-flex xs12 sm6>
-                  <v-select label="Department" required :items="['Computer Science', 'Biology', 'Mathematics', 'Political Science']"></v-select>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-select label="Year(s) Offered" multiple autocomplete chips :items="['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025']"></v-select>
-                </v-flex>
-              </v-layout>
-            </v-container>
-            <div>
-              <small>*indicates required field</small>
-            </div>
-            <small color="white--text">-All submitted projects require Administrator approval</small>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="error" flat @click.native="dialog = false">Cancel</v-btn>
-            <v-btn color="success" flat @click.native="dialog = false">Submit</v-btn>
-            
+<!-- Creates the pop-up dialog for suggesting a new project to add-->
+      <div>
+      <v-layout row justify-center>
+         <v-dialog v-model="dialog" persistent max-width="500px">
+            <v-card>
+              <v-card-title>
+                <span class="headline">New Project</span>
+              </v-card-title>
+                <v-card-text>
+                  <v-container grid-list-md>
+                    <v-layout wrap>
+                      <v-flex xs12 sm12 md12>
+                        <v-text-field label="Project Title" required></v-text-field>
+                      </v-flex>
+                      <v-flex xs12 sm12 md12>
+                        <v-text-field label="Description" required hint="Describe the main details of the project"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-text-field label="Name" required hint="Enter your name"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12 sm6>
+                        <v-select label="Department" required :items="['Computer Science', 'Biology', 'Mathematics', 'Political Science']"></v-select>
+                      </v-flex>
+                      <v-flex xs12 sm6>
+                        <v-select label="Year(s) Offered" multiple autocomplete chips :items="['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025']"></v-select>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                <div>
+                  <small>*indicates required field</small>
+                </div>
+                  <small color="white--text">-All submitted projects require Administrator approval</small>
+                </v-card-text>
+                   <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="error" flat @click.native="dialog = false">Cancel</v-btn>
+                    <v-btn color="success" flat @click.native="dialog = false">Submit</v-btn>
+                  </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-layout>
 
-          </v-card-actions>
+    <!-- Creates the toolbar above the grid list of opportunities-->
+            <v-flex xl12>
+              
+            <v-toolbar width="200px" color="primary">
 
-        </v-card>
-      </v-dialog>
-    </v-layout>
-            <v-flex xs12 sm6>
+                <v-toolbar-title class="white--text">Faculty Projects
 
-              <v-menu :close-on-content-click="false"  v-model="menu">
-                <v-btn large fixed right color="primary" slot="activator">Filters</v-btn>
-                <v-select  label="Filters" v-model="a1" v-bind:items="categories" multiple  class="primary pl-3 text-md-center" autocomplete open-on-clear hint="Select one or more tags to filter the list" persistent-hint dark>
+                </v-toolbar-title>
+
+                <v-spacer></v-spacer>
+                <v-select label="Filter Projects" v-model="a1" v-bind:items="categories" prepend-icon="search" multiple  autocomplete hint="Select one or more tags to filter the list" dark>
+
                 </v-select>
-              </v-menu>
-              <!-- <v-card >
-         <v-select 
-            label="Filters"  
-            v-model="a1"
-            v-bind:items="categories" 
-            multiple
-            chips
-            clearable
-            class="primary pl-3 text-md-center"
-            autocomplete
-            fixed
-            right
-            hint="Select one or more tags to filter the list" 
-            persistent-hint
-            dark>
-             </v-select>
-        </v-card>-->
+                <v-spacer></v-spacer>
+                <v-tooltip top>
+                  <v-btn color="blue" class="white--text" slot="activator" fab small @click.native="dialog = true">
+                    <v-icon>add</v-icon>
+                  </v-btn>
+                  <span>Click to add a Project!</span>
+                </v-tooltip>
 
-              <v-card raised hover class="mt-5">
+              </v-toolbar>
+
+             <!-- Creates the list of opportunities-->
+
+              <v-card raised hover class="my-3">
 
                 <v-list subheader two-line>
+                  <template  v-for="(item,index) in items">
 
-                  <v-list-tile v-for="item in items" v-bind:key="item.title" @click="">
+                  <v-list-tile v-bind:key="item.title" @click="">
 
                     <v-list-tile-content>
                       <v-list-tile-title v-html="item.title"></v-list-tile-title>
@@ -112,33 +104,18 @@
                       <v-icon v-bind:color="item.active ? 'purple darken-4' : 'grey'">CINC</v-icon>
                     </v-list-tile-action>
                   </v-list-tile>
+                  <v-divider v-if="index + 1 < items.length" :key="item.title"></v-divider>
+                  </template>
                 </v-list>
-                <!--<v-divider></v-divider>
-          <v-list subheader>
-            <v-subheader>Previous chats</v-subheader>
-            <v-list-tile v-for="item in items2" v-bind:key="item.title" @click="">
-              
-              <v-list-tile-content>
-                <v-list-tile-title v-html="item.title"></v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>-->
+               
               </v-card>
             </v-flex>
           </div>
-
-          <!--<v-flex xs12 sm6 lg3 >
-      <v-card flat tile>
-          <v-card-media src="/static/Me.jpg" height = "465px">
-          </v-card-media>
-      </v-card>
-      
-      </v-flex>-->
         </v-layout>
       </v-container>
     </section>
 
-    
+    <!-- Creates the bottom parallax section-->
     <section>
       <v-parallax src='/static/purp.jpg' height="300">
         <v-layout column align-center justify-center class="white--text">
@@ -198,7 +175,7 @@ export default {
         { text: 'Off-Campus(non-local)' },
         { text: 'Paid' },
         { text: 'Unpaid' },
-        { text: 'Course Credit' },
+        { text: 'Offers Course Credit' },
         { text: 'Study Away' }
       ],
       dialog: false
@@ -206,6 +183,15 @@ export default {
   },
   methods: {
 
+    toggle (index) {
+      const i = this.selected.indexOf(index)
+
+      if (i > -1) {
+        this.selected.splice(i, 1)
+      } else {
+        this.selected.push(index)
+      }
+    }
     // ///////Method to filter the various events by the selector values\\\\\\\\\\\\\\\\\\\\\\\
   }
 }

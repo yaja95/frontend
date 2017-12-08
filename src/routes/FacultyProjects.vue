@@ -3,38 +3,23 @@
     <section>
       <v-parallax src='/static/purp.jpg' height="350">
         <v-layout column align-center justify-center class="white--text">
-          <!--<img src="assets/vuetify.png" alt="Vuetify.js">-->
-          <h1 class=" white--text darken mb-2 display-3">CinC Faculty Projects and Scholars</h1>
+          <h1 class=" white--text darken mb-2 display-3" @click="">CinC Faculty Projects and Scholars</h1>
           <h4 class=" white--text headline mb-3 text-xs-center">See our CincC Faculty conducted projects and CinC Faculty Scholars below!</h4>
 
-          <!--<v-btn
-                                class="blue lighten-2 mt-5"
-                                dark
-                                large
-                                href="/pre-made-themes"
-                              >
-                                Get Started
-                              </v-btn>-->
+                        
         </v-layout>
       </v-parallax>
     </section>
 
     <section>
       <v-container fluid>
-        <v-layout row class="pr-4">
-          <!--<v-flex xs12 sm6 lg3  >
-                          <v-spacer></v-spacer>
-                      <v-card  flat tile>
-                          <v-card-media src="/static/Me.jpg" height = "465px">
-                          </v-card-media>
-                      </v-card>
-                      
-                      </v-flex>-->
+        <v-layout row >
+
 
           <v-flex xs12 sm6>
             <v-spacer></v-spacer>
-            <v-card raised hover class="mt-5">
-              <v-toolbar class=" mt-5 purple darken-4">
+            
+              <v-toolbar class="mt-3" color="primary">
 
                 <v-toolbar-title class="white--text">Faculty Projects
 
@@ -53,38 +38,40 @@
                 </v-tooltip>
 
               </v-toolbar>
+              <v-card raised hover class="my-3">
               <v-list subheader two-line>
+                <template v-for="(item,index) in items">
 
-                <v-list-tile v-for="item in items" v-bind:key="item.title" @click="">
+                <v-list-tile  :key="item.title" @click="">
 
                   <v-list-tile-content>
                     <v-list-tile-title v-html="item.title"></v-list-tile-title>
                     <v-list-tile-sub-title v-bind="item.text" v-html="item.subtitle"></v-list-tile-sub-title>
+                    
                   </v-list-tile-content>
+                  
                   <v-list-tile-action>
                     <v-icon v-bind:color="item.active ? 'primary' : 'grey'">CINC</v-icon>
                   </v-list-tile-action>
+                  
                 </v-list-tile>
+                <v-divider v-if="index + 1 < items.length" :key="item.title"></v-divider>
+                </template>
               </v-list>
-              <!--<v-divider></v-divider>
-                          <v-list subheader>
-                            <v-subheader>Previous chats</v-subheader>
-                            <v-list-tile v-for="item in items2" v-bind:key="item.title" @click="">
-                              
-                              <v-list-tile-content>
-                                <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </v-list>-->
+
             </v-card>
           </v-flex>
 
           <v-spacer></v-spacer>
 
-          <v-flex xs12 sm6 class="pl-4">
-            <v-spacer></v-spacer>
-            <v-card raised hover class="mt-5">
-              <v-toolbar class=" mt-5 purple darken-4">
+          <!--<v-flex xs12 sm6 class="pl-4">-->
+            <!--<v-card raised hover class="mt-5">-->
+              <v-container 
+              fluid
+              
+              >
+
+              <v-toolbar color="primary">
 
                 <v-toolbar-title class="white--text">Faculty Scholars
 
@@ -102,42 +89,40 @@
                   <span>Click to add yourself as a Scholar!</span>
                 </v-tooltip>
               </v-toolbar>
-              <v-list subheader two-line>
 
-                <v-list-tile avatar v-for="item in items2" v-bind:key="item.title" @click="">
-                  <v-list-tile-avatar>
-                    <img v-bind:src="item.avatar">
-                  </v-list-tile-avatar>
-                  <v-list-tile-content>
-                    <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                    <v-list-tile-sub-title v-bind="item.text" v-html="item.subtitle"></v-list-tile-sub-title>
-                  </v-list-tile-content>
-                  <v-list-tile-action>
-                    <v-icon v-bind:color="item.active ? 'primary' : 'grey'">CINC</v-icon>
-                  </v-list-tile-action>
-                </v-list-tile>
-              </v-list>
-              <!--<v-divider></v-divider>
-                          <v-list subheader>
-                            <v-subheader>Previous chats</v-subheader>
-                            <v-list-tile v-for="item in items2" v-bind:key="item.title" @click="">
-                              
-                              <v-list-tile-content>
-                                <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                              </v-list-tile-content>
-                            </v-list-tile>
-                          </v-list>-->
-            </v-card>
-          </v-flex>
-          <!--<v-flex xs12 sm6 lg3 >
-                      <v-card flat tile>
-                          <v-card-media src="/static/Me.jpg" height = "465px">
-                          </v-card-media>
-                      </v-card>
-                      
-                      </v-flex>-->
-        </v-layout>
+
+      <v-layout row wrap>
+        <v-flex xs12>
+          <v-card ripple color="primary" class="white--text my-3"
+          v-for="item in items2" v-bind:key="item.title" @click=""
+          >
+            
+            <v-card-title>
+              <v-avatar size="80px">
+              <img v-bind:src="item.avatar"></v-avatar>
+              <v-spacer></v-spacer>
+              <div class=" text-xs-center">
+                <h3 v-html="item.title"></h3>
+                 </div>
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Etiam eget vehicula justo, sed suscipit velit. Cras eget nisi sed risus tempor condimentum at eu dui. 
+                Nullam cursus posuere turpis sit amet placerat. Curabitur non ornare orci, ac ornare nisl.
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin et nisi ipsum. 
+                 Integer a urna blandit, vestibulum ante id, volutpat quam.</div>
+              
+            </v-card-title>
+            <v-card-actions>
+              <v-btn flat dark></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    
+
       </v-container>
+
+        </v-layout>
+      </v-container> 
 
       <v-layout row wrap justify-left>
         <v-dialog v-model="dialog" persistent max-width="500px">
@@ -244,6 +229,7 @@
 export default {
   data () {
     return {
+      selected: [],
       items: [
         { active: true, title: 'Opportunity Two', subtitle: "<span class='grey--text text--darken-3'></span>  Description of Opportunity One will go here from DB?", text: 'Summer' },
         { active: true, title: 'Opportunity Two', subtitle: "<span class='grey--text text--darken-3'></span> - Description of Opportunity Two will go here from DB?", text: 'Fall' },
@@ -298,6 +284,15 @@ export default {
       var green
       green = this.dialog
       return green
+    },
+    toggle (index) {
+      const i = this.selected.indexOf(index)
+
+      if (i > -1) {
+        this.selected.splice(i, 1)
+      } else {
+        this.selected.push(index)
+      }
     }
   }
 }

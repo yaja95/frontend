@@ -93,15 +93,7 @@
       submitForm () {
         let data = new FormData()
         data.append('file', this.file)
-        let xhr = new XMLHttpRequest()
-        xhr.addEventListener('readystatechange', function () {
-          if (this.readyState === 4) {
-            console.log(this.responseText)
-          }
-        })
-        xhr.open('POST', 'http://localhost:8080/YOUR_API_ENDPOINT')
-        console.log(xhr)
-        xhr.send(data)
+        this.$http.post('endpoint', this.file)
       }
     }
   }

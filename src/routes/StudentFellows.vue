@@ -11,13 +11,6 @@
       :rules="emailRules"
       required
     ></v-text-field>
-    <v-select
-      label="Department"
-      v-model="select"
-      :items="items"
-      :rules="[v => !!v || 'Item is required']"
-      required
-    ></v-select>
     <v-checkbox
       label="By clicking this box, you consent to having your application reviewed by those in charge"
       v-model="checkbox"
@@ -91,7 +84,12 @@
       async submit () {
         const filename = await this.uploadFile()
         if (filename) {
-          // do remaining bits
+          const fellow = await this.$http.put('fellow/student', {
+            name: this.name,
+            email: this.email,
+            application: filename
+          })
+          console.log(fellow)
         }
       },
       async uploadFile () {

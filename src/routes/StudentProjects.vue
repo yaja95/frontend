@@ -69,7 +69,7 @@
               
             <v-toolbar width="200px" color="primary">
 
-                <v-toolbar-title class="white--text">Faculty Projects
+                <v-toolbar-title class="white--text">Student Project Opportunites
 
                 </v-toolbar-title>
 

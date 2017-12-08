@@ -98,9 +98,14 @@
         const file = document.getElementById('file').files[0]
         if (!file) return null
         let data = new FormData()
+<<<<<<< Updated upstream
         data.append('file', file)
         const path = await this.$http.post('upload', data)
         return path.body
+=======
+        data.append('file', this.file)
+        this.$http.post('endpoint', this.file)
+>>>>>>> Stashed changes
       }
     }
   }

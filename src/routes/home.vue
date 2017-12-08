@@ -63,7 +63,7 @@ export default {
         },
         {
           img: 'https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg',
-          route: '/courses/',
+          route: '/students/courses',
           title: 'Courses',
           text: 'Learn about the great computing courses already on offer, or give input on new courses'
         },
@@ -72,13 +72,6 @@ export default {
           route: '/partners/',
           title: 'Partners',
           text: 'Learn about the partners who make the initiative possible, or become a partner'
-        }
-      ],
-      blogposts: [ // Example stub
-        {
-          title: 'Still working',
-          description: 'This is a test message for the work in progresss. Hopefully this is sufficient and works well enough to please everyone',
-          date: new Date(2017, 10, 6)
         }
       ],
       opportunities: [ // Example stub

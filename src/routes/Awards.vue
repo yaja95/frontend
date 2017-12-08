@@ -14,9 +14,9 @@
           <template v-for="(item, index) in awards">
             <v-card color="white" class="black--text" :key="index">
               <v-card-title primary-title>
-                <div class="headline">{{item.title}}</div>
+                <div class="headline">{{item.name}}</div>
                 <v-spacer></v-spacer>
-                <div class = headline>{{item.won}}</div>
+                <div class = headline>{{(new Date(item.date)).toLocaleDateString()}}</div>
               </v-card-title>
               <v-card-text>
                 <div>{{item.description}}</div>
@@ -31,16 +31,10 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
-      awards: [ // Example stub
-        {
-          title: 'Christopher Durham Excellence in Management Award',
-          description: 'This award is given to a team mananger who is willing to put up with a terrible security and database manager',
-          winner: 'Christopher Durham',
-          won: 'December 2017'
-        }
-      ]
+  asyncComputed: {
+    async awards () {
+      let awards = await this.$http.get('awards')
+      return awards.body
     }
   }
 }

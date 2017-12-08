@@ -14,6 +14,8 @@ import StudentFellows from './StudentFellows'
 import ExperiencesPage from './ExperiencesPage'
 import Project from './FacultyProjects'
 
+
+
 Vue.use(Router)
 
 export const router = new Router({
@@ -39,6 +41,7 @@ export const router = new Router({
       component: FacultyPage
     },
     {
+
       path: '/faculty/projects/',
       component: Project
     },

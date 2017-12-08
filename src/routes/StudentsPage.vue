@@ -27,7 +27,7 @@
       <v-toolbar class="primary" dark>
         <v-toolbar-title>Opportunities</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn class='black--text'>Full List of Opportunities
+        <v-btn class='black--text' to="/students/projects/">Full List of Opportunities
           <v-icon right >list</v-icon>
         </v-btn>
       </v-toolbar>

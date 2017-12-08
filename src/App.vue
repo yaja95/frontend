@@ -10,7 +10,7 @@
           v-list-tile-content: v-list-tile-title Blog
         v-list-tile(to="/events/")
           v-list-tile-action: v-icon date_range
-          v-list-tile-content: v-list-tile-tile Events
+          v-list-tile-content: v-list-tile-title Events
         v-list-group(v-for="(group, idx) in groups", v-model="group.active" :key="idx")
           v-list-tile(slot="item" :to="group.to" @click.stop="")
             v-list-tile-action: v-icon {{ group.icon }}
@@ -48,8 +48,8 @@ export default {
           paths: [
             { to: '/students/projects/', title: 'Projects', icon: 'list' },
             { to: '/students/experiences/', title: 'Experiences', icon: 'map' },
-            { to: '/students/courses/', title: 'Courses', icon: 'assignment' },
-            { to: '/students/awards/', title: 'Awards', icon: 'star_border' }
+            { to: '/students/awards/', title: 'Awards', icon: 'star_border' },
+            { to: '/students/courses/', icon: 'assessment', title: 'Courses' }
           ]
         },
         {
@@ -59,11 +59,10 @@ export default {
           paths: [
             { to: '/faculty/student_fellows/', title: 'Student Fellows', icon: 'portrait' },
             { to: '/faculty/teaching_fellows/', title: 'Teaching Fellows', icon: 'contacts' },
-            { to: '/faculty/courses/', title: 'Courses', icon: 'assignment' },
-            { to: '/faculty/projects/', title: 'Projects', icon: 'list' }
+            { to: '/faculty/projects/', title: 'Projects', icon: 'list' },
+            { to: '/faculty/courses/', icon: 'assessment', title: 'Courses' }
           ]
         }
-        // { to: '/courses/', icon: 'assessment', title: 'Courses' },
         // { to: '/partners/', icon: 'people', title: 'Partners' }
       ]
     }

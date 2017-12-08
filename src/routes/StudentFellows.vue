@@ -3,7 +3,6 @@
     <v-text-field
       label="Name"
       v-model="name"
-      :rules="nameRules"
       required
     ></v-text-field>
     <v-text-field
@@ -26,7 +25,7 @@
       required
     ></v-checkbox>
     <v-flex xs12>
-      <upload-button title="Click To Upload File" :selectedCallback="fileSelectedFunc"></upload-button>
+      <input id="file" type="file" name="file"/>
     </v-flex>
     <v-btn
       @click="submit"
@@ -89,18 +88,19 @@
         console.log(file)
         this.file = file
       },
-      submitForm () {
+      async submit () {
+        const filename = await this.uploadFile()
+        if (filename) {
+          // do remaining bits
+        }
+      },
+      async uploadFile () {
+        const file = document.getElementById('file').files[0]
+        if (!file) return null
         let data = new FormData()
-        data.append('file', this.file)
-        let xhr = new XMLHttpRequest()
-        xhr.addEventListener('readystatechange', function () {
-          if (this.readyState === 4) {
-            console.log(this.responseText)
-          }
-        })
-        xhr.open('POST', 'http://localhost:8080/YOUR_API_ENDPOINT')
-        console.log(xhr)
-        xhr.send(data)
+        data.append('file', file)
+        const path = await this.$http.post('upload', data)
+        return path.body
       }
     }
   }

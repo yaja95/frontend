@@ -26,7 +26,7 @@
       required
     ></v-checkbox>
     <v-flex xs12>
-      <upload-button title="Click To Upload File" :selectedCallback="fileSelectedFunc"></upload-button>
+      <input id="file" type="file" name="file"/>
     </v-flex>
     <v-btn
       @click="submit"
@@ -90,10 +90,19 @@
         console.log(file)
         this.file = file
       },
-      submitForm () {
+      async submit () {
+        const filename = await this.uploadFile()
+        if (filename) {
+          // do remaining bits
+        }
+      },
+      async uploadFile () {
+        const file = document.getElementById('file').files[0]
+        if (!file) return null
         let data = new FormData()
-        data.append('file', this.file)
-        this.$http.post('endpoint', this.file)
+        data.append('file', file)
+        const path = await this.$http.post('upload', data)
+        return path.body
       }
     }
   }

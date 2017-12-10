@@ -39,7 +39,7 @@
               <div v-for="post in posts" :key="post.title">
                 <v-card class="my-3" hover>
                   <v-card-media
-                    class="black--text"
+                    class="primary--text"
                     height="100px"
                   >
                     <v-container fill-height fluid align-left>
@@ -53,15 +53,6 @@
                   <v-card-text>
                     {{ post.contents }}
                   </v-card-text>
-                  <v-card-actions>
-                    <v-btn icon class="light-blue--text">
-                      <v-icon medium>fa-twitter</v-icon>
-                    </v-btn>
-                    <v-btn icon class="blue--text text--darken-4">
-                      <v-icon medium>fa-facebook</v-icon>
-                    </v-btn>
-                    <v-spacer></v-spacer>
-                  </v-card-actions>
                 </v-card>
               </div>
             </v-flex>

@@ -84,6 +84,26 @@ export default {
       ]
     }
   },
-  components: { RouteCards }
+  components: { RouteCards },
+  asyncComputed: {
+    async calendar () {
+      let calendar = await this.$http.get('events')
+      return calendar.body
+    }
+  },
+  async posts () {
+    let posts = await this.$http.get('blog')
+    return posts.body
+  },
+  methods: {
+    async saveNewBlog () {
+      let blog = {
+        title: this.title,
+        contents: this.contents
+      }
+      let response = await this.$http.put('blog', blog)
+      console.log(response)
+    }
+  }
 }
 </script>

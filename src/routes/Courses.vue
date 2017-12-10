@@ -85,7 +85,7 @@
           </v-btn>
         </v-toolbar>
         <v-container fluid grid-list-md class="grey lighten-4">
-          <v-layout row wrap>
+          <v-layout>
             <v-flex
               v-for="card in cards"
               :key="card.id"

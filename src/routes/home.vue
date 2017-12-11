@@ -63,7 +63,7 @@ export default {
         },
         {
           img: 'https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg',
-          route: '/courses/',
+          route: '/faculty/courses/',
           title: 'Courses',
           text: 'Learn about the great computing courses already on offer, or give input on new courses'
         },

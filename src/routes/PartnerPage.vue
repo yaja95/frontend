@@ -136,33 +136,37 @@
 
           <v-card>
             <v-card-title>
-              <span class="headline">New Project</span>
+              <span class="headline">New Job Post</span>
             </v-card-title>
             <v-card-text>
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12 sm12 md12>
-                    <v-text-field label="Project Title" required></v-text-field>
+                    <v-text-field label="Job Title" required></v-text-field>
                   </v-flex>
                   <v-flex xs12 sm12 md12>
-                    <v-text-field label="Description" required hint="Describe the main details of the project"></v-text-field>
+                    <v-text-field label="Job Description" required hint="Describe the main details of the job"></v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="Name" required hint="Enter your name"></v-text-field>
+                    <v-text-field label="Name" required hint="Enter your name or the company name"></v-text-field>
                   </v-flex>
-
-                  <v-flex xs12 sm6>
-                    <v-select label="Department" required :items="['Computer Science', 'Biology', 'Mathematics', 'Political Science']"></v-select>
+                  <v-flex xs6>
+                    <v-text-field label="Number" required hint="Enter your contact number"></v-text-field>
                   </v-flex>
-                  <v-flex xs12 sm6>
-                    <v-select label="Year(s) Offered" multiple autocomplete chips :items="['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025']"></v-select>
+                  <v-flex xs6>
+                    <v-text-field label="Email" required hint="Enter your contact email"></v-text-field>
                   </v-flex>
+                  <v-flex xs12>
+                    <v-text-field label="Student Supervision" required hint="How will the student be supervised?"></v-text-field>
+                  </v-flex>
+                  <p>Check the box below to agree to notify us if you hire one of our students</p> 
+                  <v-checkbox v-model="ex1"></v-checkbox>
                 </v-layout>
               </v-container>
               <div>
                 <small>*indicates required field</small>
               </div>
-              <small color="white--text">-All submitted projects require Administrator approval</small>
+              <small color="white--text">-All submissions require Administrator approval</small>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -180,27 +184,33 @@
 
           <v-card>
             <v-card-title>
-              <span class="headline">New Scholar</span>
+              <span class="headline">Apply For an Intern!</span>
             </v-card-title>
             <v-card-text>
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12 sm12 md12>
-                    <v-text-field label="Scholar Name" required></v-text-field>
+                    <v-text-field label="Project Name" required></v-text-field>
                   </v-flex>
-
-                  <v-flex xs12 sm6>
-                    <v-select label="Department" required :items="['Computer Science', 'Biology', 'Mathematics', 'Political Science']"></v-select>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field label="Project Description" required hint="Describe the main details of the project"></v-text-field>
                   </v-flex>
-                  <v-flex xs12 sm6>
-                    <v-select label="Year(s) Teaching" autocomplete :items="['1', '2','3','4','5','6','7','8','9','10']"></v-select>
+                   <v-flex xs12>
+                    <v-text-field label="Student Supervision" required hint="How will the student be supervised?"></v-text-field>
                   </v-flex>
+                  <v-flex xs6>
+                    <v-text-field label="Number" required hint="Enter your contact number"></v-text-field>
+                  </v-flex>
+                  <v-flex xs6>
+                    <v-text-field label="Email" required hint="Enter your contact email"></v-text-field>
+                  </v-flex>
+                 
                 </v-layout>
               </v-container>
               <div>
                 <small>*indicates required field</small>
               </div>
-              <small color="white--text">-All submitted projects require Administrator approval</small>
+              <small color="white--text">-All submissions  require Administrator approval</small>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -244,7 +254,8 @@
           }
         ],
         dialog: false,
-        dialog2: false
+        dialog2: false,
+        ex1: false
       }
     }
   }

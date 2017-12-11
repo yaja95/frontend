@@ -11,6 +11,7 @@
         v-list-tile(to="/events/")
           v-list-tile-action: v-icon date_range
           v-list-tile-content: v-list-tile-title Events
+       
         v-list-group(v-for="(group, idx) in groups", v-model="group.active" :key="idx")
           v-list-tile(slot="item" :to="group.to" @click.stop="")
             v-list-tile-action: v-icon {{ group.icon }}
@@ -19,6 +20,9 @@
           v-list-tile(v-for="(path, idx) in group.paths" :key="idx" :to="path.to")
             v-list-tile-content: v-list-tile-title {{ path.title }}
             v-list-tile-action: v-icon {{ path.icon }}
+        v-list-tile(to="/partners/")
+          v-list-tile-action: v-icon group
+          v-list-tile-content: v-list-tile-title Partners
     v-toolbar(app dark dense).primary
       v-toolbar-side-icon(@click.stop="toggleDrawer")
       router-link(tag="v-toolbar-title" to="/") Furman Computing in Comunity
